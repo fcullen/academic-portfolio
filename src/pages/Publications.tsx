@@ -9,26 +9,9 @@ import {
   Divider,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { publications } from "../data/publications";
 
 const MotionPaper = motion(Paper);
-
-const publications = [
-  {
-    year: "2023",
-    title: "Sample Publication Title 1",
-    authors: "Your Name, Co-Author Name",
-    venue: "Journal/Conference Name",
-    doi: "https://doi.org/10.xxxx/xxxxx",
-  },
-  {
-    year: "2022",
-    title: "Sample Publication Title 2",
-    authors: "Your Name, Co-Author Name",
-    venue: "Journal/Conference Name",
-    doi: "https://doi.org/10.xxxx/xxxxx",
-  },
-  // Add more publications as needed
-];
 
 const Publications = () => {
   return (

@@ -1,95 +1,95 @@
-import React, { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import React from "react";
 import {
   AppBar,
   Toolbar,
   Typography,
   Button,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
   Box,
+  IconButton,
+  Menu,
+  MenuItem,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link as RouterLink } from "react-router-dom";
+import { colors } from "../theme/colors";
 
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const menuItems = [
-    { text: "Home", path: "/" },
-    { text: "Publications", path: "/publications" },
-    { text: "Research", path: "/research" },
-    { text: "Teaching", path: "/teaching" },
-    { text: "Contact", path: "/contact" },
-  ];
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const drawer = (
-    <List>
-      {menuItems.map((item) => (
-        <ListItem
-          button
-          key={item.text}
-          component={RouterLink}
-          to={item.path}
-          onClick={handleDrawerToggle}
-        >
-          <ListItemText primary={item.text} />
-        </ListItem>
-      ))}
-    </List>
-  );
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const menuItems = [
+    { text: "Home", path: "/ferg-test-website/" },
+    { text: "Publications", path: "/ferg-test-website/publications" },
+    { text: "Research", path: "/ferg-test-website/research" },
+    { text: "Teaching", path: "/ferg-test-website/teaching" },
+    { text: "Team", path: "/ferg-test-website/team" },
+    { text: "Data", path: "/ferg-test-website/data" },
+  ];
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: colors.primary.main }}>
       <Toolbar>
         <Typography
           variant="h6"
-          component="div"
-          sx={{ flexGrow: 1, fontWeight: "bold" }}
+          component={RouterLink}
+          to="/ferg-test-website/"
+          sx={{
+            flexGrow: 1,
+            fontWeight: "bold",
+            color: "#FFFFFF",
+            textDecoration: "none",
+          }}
         >
-          Your Name
+          Fergus Cullen
         </Typography>
-
         {isMobile ? (
           <>
             <IconButton
+              edge="end"
               color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
+              aria-label="menu"
+              onClick={handleMenu}
             >
               <MenuIcon />
             </IconButton>
-            <Drawer
-              variant="temporary"
-              anchor="right"
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-              ModalProps={{
-                keepMounted: true,
-              }}
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
             >
-              {drawer}
-            </Drawer>
+              {menuItems.map((item) => (
+                <MenuItem
+                  key={item.text}
+                  component={RouterLink}
+                  to={item.path}
+                  onClick={handleClose}
+                  sx={{ color: colors.text.primary }}
+                >
+                  {item.text}
+                </MenuItem>
+              ))}
+            </Menu>
           </>
         ) : (
-          <Box sx={{ display: "flex", gap: 2 }}>
+          <Box>
             {menuItems.map((item) => (
               <Button
                 key={item.text}
                 color="inherit"
                 component={RouterLink}
                 to={item.path}
+                sx={{ ml: 2 }}
               >
                 {item.text}
               </Button>
