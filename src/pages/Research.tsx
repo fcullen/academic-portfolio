@@ -17,7 +17,18 @@ const researchAreas = [
       "Detailed description of your second research area. Explain the key concepts, methodologies, and findings.",
     image: "/research2.jpg",
   },
-  // Add more research areas as needed
+  {
+    title: "Research Area 3",
+    description:
+      "Detailed description of your first research area. Explain the key concepts, methodologies, and findings.",
+    image: "/research1.jpg",
+  },
+  {
+    title: "Research Area 4",
+    description:
+      "Detailed description of your second research area. Explain the key concepts, methodologies, and findings.",
+    image: "/research2.jpg",
+  },
 ];
 
 const Research = () => {

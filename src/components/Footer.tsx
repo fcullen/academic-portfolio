@@ -8,7 +8,6 @@ const Footer = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/ferg-test-website/";
 
-  // Return null if we're on the homepage
   if (isHomePage) {
     return null;
   }
