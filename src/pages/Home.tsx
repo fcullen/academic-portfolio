@@ -11,10 +11,9 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 // import axios from "axios";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GoogleScholarIcon from "@mui/icons-material/School";
 import profileImage from "../assets/profile.png";
+import { colors } from "../theme/colors";
+import SocialIcons from "../components/SocialIcons";
 
 const MotionBox = motion(Box);
 
@@ -50,13 +49,31 @@ const Home = () => {
   */
 
   return (
-    <Container maxWidth="lg">
-      <Grid container spacing={4}>
+    <Container
+      maxWidth="lg"
+      sx={{
+        minHeight: "calc(100vh - 64px - 48px)",
+        display: "flex",
+        alignItems: "center",
+        py: 4,
+        //backgroundColor: "red",
+      }}
+    >
+      <Grid
+        container
+        spacing={4}
+        sx={{
+          alignItems: "stretch",
+          justifyContent: "center",
+          minHeight: "100%",
+        }}
+      >
         <Grid item xs={12} md={4}>
           <MotionBox
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
+            sx={{ height: "100%" }}
           >
             <Paper
               elevation={3}
@@ -127,35 +144,7 @@ const Home = () => {
               </Typography>
 
               {/* Social Media Icons */}
-              <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
-                <IconButton
-                  component={Link}
-                  href="https://github.com/fergus-cullen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ color: "#b39dfb" }}
-                >
-                  <GitHubIcon />
-                </IconButton>
-                <IconButton
-                  component={Link}
-                  href="https://linkedin.com/in/fergus-cullen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ color: "#b39dfb" }}
-                >
-                  <LinkedInIcon />
-                </IconButton>
-                <IconButton
-                  component={Link}
-                  href="https://scholar.google.com/citations?user=fergus-cullen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ color: "#b39dfb" }}
-                >
-                  <GoogleScholarIcon />
-                </IconButton>
-              </Box>
+              <SocialIcons />
             </Paper>
           </MotionBox>
         </Grid>
@@ -190,6 +179,24 @@ const Home = () => {
                 Dunlop, Prof. Ross McLure, Dr. Adam Carnall and Dr. Derek McLeod
                 with the specific aim of understanding the formation and
                 evolution of galaxies and black holes across cosmic time.
+              </Typography>
+              <Typography variant="h4" gutterBottom sx={{ color: "#2C3E50" }}>
+                News
+              </Typography>
+              <Typography paragraph sx={{ color: "#2C3E50", mt: 2 }}>
+                <Typography variant="body1" sx={{ color: "#2C3E50" }}>
+                  <Link href="https://www.google.com">Link 1</Link>
+                </Typography>
+              </Typography>
+              <Typography paragraph sx={{ color: "#2C3E50", mt: 2 }}>
+                <Typography variant="body1" sx={{ color: "#2C3E50" }}>
+                  <Link href="https://www.google.com">Link 2</Link>
+                </Typography>
+              </Typography>
+              <Typography paragraph sx={{ color: "#2C3E50", mt: 2 }}>
+                <Typography variant="body1" sx={{ color: "#2C3E50" }}>
+                  <Link href="https://www.google.com">Link 3</Link>
+                </Typography>
               </Typography>
             </Paper>
           </MotionBox>

@@ -96,6 +96,8 @@ const theme = createTheme({
     },
   },
 });
+const backgroundImage =
+  "https://images.unsplash.com/photo-1543722530-d2c3201371e7?q=80&w=3548&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 function App() {
   return (
@@ -103,27 +105,67 @@ function App() {
       <CssBaseline />
       <Router>
         <Box
-          sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+            position: "relative",
+          }}
         >
           <Navbar />
-          <Box component="main" sx={{ flexGrow: 1, py: 4, px: 2 }}>
-            <Routes>
-              <Route path="/ferg-test-website/" element={<Home />} />
-              <Route
-                path="/ferg-test-website/publications"
-                element={<Publications />}
-              />
-              <Route
-                path="/ferg-test-website/research"
-                element={<Research />}
-              />
-              <Route
-                path="/ferg-test-website/teaching"
-                element={<Teaching />}
-              />
-              <Route path="/ferg-test-website/team" element={<Team />} />
-              <Route path="/ferg-test-website/data" element={<Data />} />
-            </Routes>
+          <Box
+            component="main"
+            sx={{
+              flexGrow: 1,
+              py: 4,
+              px: 2,
+              position: "relative",
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundAttachment: "fixed",
+                zIndex: 0,
+              },
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background:
+                  "linear-gradient(to bottom, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.80))",
+                backdropFilter: "blur(1px)",
+                zIndex: 1,
+              },
+            }}
+          >
+            <Box sx={{ position: "relative", zIndex: 2 }}>
+              <Routes>
+                <Route path="/ferg-test-website/" element={<Home />} />
+                <Route
+                  path="/ferg-test-website/publications"
+                  element={<Publications />}
+                />
+                <Route
+                  path="/ferg-test-website/research"
+                  element={<Research />}
+                />
+                <Route
+                  path="/ferg-test-website/teaching"
+                  element={<Teaching />}
+                />
+                <Route path="/ferg-test-website/team" element={<Team />} />
+                <Route path="/ferg-test-website/data" element={<Data />} />
+              </Routes>
+            </Box>
           </Box>
           <Footer />
         </Box>
