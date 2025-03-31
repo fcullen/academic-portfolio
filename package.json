@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://sanspanic.github.io/ferg-test-website",
+  "homepage": "https://fcullen.github.io/academic-portfolio",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

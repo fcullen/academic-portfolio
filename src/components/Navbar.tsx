@@ -29,12 +29,12 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { text: "Home", path: "/ferg-test-website/" },
-    { text: "Publications", path: "/ferg-test-website/publications" },
-    { text: "Research", path: "/ferg-test-website/research" },
-    { text: "Teaching", path: "/ferg-test-website/teaching" },
-    { text: "Team", path: "/ferg-test-website/team" },
-    { text: "Data", path: "/ferg-test-website/data" },
+    { text: "Home", path: "/academic-portfolio/" },
+    { text: "Publications", path: "/academic-portfolio/publications" },
+    { text: "Research", path: "/academic-portfolio/research" },
+    { text: "Teaching", path: "/academic-portfolio/teaching" },
+    { text: "Team", path: "/academic-portfolio/team" },
+    { text: "Data", path: "/academic-portfolio/data" },
   ];
 
   return (
@@ -43,7 +43,7 @@ const Navbar = () => {
         <Typography
           variant="h6"
           component={RouterLink}
-          to="/ferg-test-website/"
+          to="/academic-portfolio/"
           sx={{
             flexGrow: 1,
             fontWeight: "bold",

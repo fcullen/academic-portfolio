@@ -6,7 +6,7 @@ import SocialIcons from "./SocialIcons";
 
 const Footer = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === "/ferg-test-website/";
+  const isHomePage = location.pathname === "/academic-portfolio/";
 
   if (isHomePage) {
     return null;

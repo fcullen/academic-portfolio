@@ -149,21 +149,21 @@ function App() {
           >
             <Box sx={{ position: "relative", zIndex: 2 }}>
               <Routes>
-                <Route path="/ferg-test-website/" element={<Home />} />
+                <Route path="/academic-portfolio/" element={<Home />} />
                 <Route
-                  path="/ferg-test-website/publications"
+                  path="/academic-portfolio/publications"
                   element={<Publications />}
                 />
                 <Route
-                  path="/ferg-test-website/research"
+                  path="/academic-portfolio/research"
                   element={<Research />}
                 />
                 <Route
-                  path="/ferg-test-website/teaching"
+                  path="/academic-portfolio/teaching"
                   element={<Teaching />}
                 />
-                <Route path="/ferg-test-website/team" element={<Team />} />
-                <Route path="/ferg-test-website/data" element={<Data />} />
+                <Route path="/academic-portfolio/team" element={<Team />} />
+                <Route path="/academic-portfolio/data" element={<Data />} />
               </Routes>
             </Box>
           </Box>
